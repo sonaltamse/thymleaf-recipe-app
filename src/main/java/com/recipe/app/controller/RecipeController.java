@@ -28,6 +28,10 @@ public class RecipeController {
     public ResponseEntity<List<Recipe>> getAllRecipes(
             @RequestParam(required = false) String category,
             @RequestParam(required = false) Integer rating) {
+
+        if(category != null && rating != null && !category.isBlank()) {
+            return ResponseEntity.ok(recipeRepository.findByCategoryAndRating(category, rating));
+        }
         if(category != null && !category.isBlank()) {
             return ResponseEntity.ok(recipeRepository.findByCategory(category));
         }
