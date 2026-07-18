@@ -20,7 +20,8 @@ public class RecipeController {
 
     @PostMapping
     public ResponseEntity<Recipe> addRecipe(@Valid @RequestBody Recipe recipe) {
-        return null;
+        Recipe savedRecipe = recipeRepository.save(recipe);
+        return ResponseEntity.ok(savedRecipe);
     }
 
     @GetMapping
