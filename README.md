@@ -1,16 +1,7 @@
-# Testing Your Recipe Bookmark API
-
-> **Note:** Since this environment has no open ports, these curl commands are for your reference.
-> Use the test file to verify your implementation, or run them if you deploy locally.
-
 
 > **A note on project structure:** In this lab, the controller talks directly to the
 > repository. In production Spring Boot apps, you'd add a **service layer** in between
 > (`RecipeController` → `RecipeService` → `RecipeRepository`) to keep business logic
-> separate from HTTP handling. You'll build exactly that pattern in the next lab.
-> For now, keeping it direct lets you focus on `@RequestParam`, `@Valid`, and
-> `ResponseEntity` without extra layers getting in the way.
-
 ---
 
 ### 1. Add a Recipe (no validation)
