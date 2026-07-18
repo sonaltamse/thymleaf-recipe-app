@@ -26,9 +26,13 @@ public class RecipeController {
 
     @GetMapping
     public ResponseEntity<List<Recipe>> getAllRecipes(
-            @RequestParam(required = false) String category) {
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) Integer rating) {
         if(category != null && !category.isBlank()) {
             return ResponseEntity.ok(recipeRepository.findByCategory(category));
+        }
+        if(rating != null) {
+            return ResponseEntity.ok(recipeRepository.findByRating(rating));
         }
         return ResponseEntity.ok(recipeRepository.findAll());
     }
